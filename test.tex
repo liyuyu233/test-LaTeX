@@ -13,6 +13,10 @@
 %控制图表不乱跑
 \usepackage{float}
 
+%高亮代码块；
+\usepackage{listings}
+\lstset{language=matlab}%这里用的语言是matlab
+
 %控制页眉页脚
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -38,6 +42,7 @@
 \begin{document}
 \maketitle
 
+Let's play with \LaTeX!
 %一号标题
 \section{我是一号标题}
 相当于markdown里面的\# 我是一号标题
@@ -51,10 +56,22 @@
 %插入图表
 \begin{figure}[H]%控制图表在原地不动
 \centering%居中
-\includegraphics[width = .8\textwidth]{i am a picture.png}%控制图片宽度为页面宽度的百分之八十，插入图片
+\includegraphics[width = .8\textwidth]{我是一张图片.png}%控制图片宽度为页面宽度的百分之八十，插入图片
 \caption{我是一张图片}%图片名
 \label{fig:1}%图片编号，这里是1
 \end{figure}
+
+%插入编号列表
+\begin{enumerate}
+\item item1
+\item item2
+\end{enumerate}
+
+%插入代码
+\begin{lstlisting}
+% 这里是matlab代码
+\end{lstlisting}
+
 
 %结束
 \end{document}
