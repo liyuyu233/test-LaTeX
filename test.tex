@@ -1,4 +1,4 @@
-%请用win+R打开TeXworks
+﻿%请用win+R打开TeXworks
 %再用XeLaTeX编译
 %感谢简明的入门教程https://liam0205.me/2014/09/08/latex-introduction/
 
@@ -12,6 +12,9 @@
 
 %控制图表不乱跑
 \usepackage{float}
+
+%数学
+\usepackage{amsmath}
 
 %高亮代码块；
 \usepackage{listings}
@@ -33,6 +36,9 @@
 %用来插图
 \usepackage{graphicx}
 
+% 参考文献写法1
+\bibliographystyle{plain}
+
 %文章信息
 \title{我是题目}
 \author{我是作者的名字}
@@ -40,9 +46,35 @@
 
 %开始
 \begin{document}
-\maketitle
+%简单标题
+%\maketitle
 
-Let's play with \LaTeX!
+%标题页
+\begin{titlepage}
+	\vspace{30mm}
+\begin{center}
+	{\heiti\Huge 我是标题}\\[30mm]
+	{\large 作者 \footnote{我是作者\ 有何贵干}}\\[5mm]
+	作者单位\\[15mm]
+	\begin{minipage}[c]{200pt}
+		\large 姓\qquad 名：作者\\
+		单位\\
+	\end{minipage}\\[100mm]
+	\textbf{\heiti 中国\quad 北京\\ 
+	BEIJING, CHINA\\
+	\today}
+\end{center}
+\end{titlepage}
+%目录
+\tableofcontents
+
+%摘要
+\begin{abstract}
+\addcontentsline{toc}{section}{摘要}
+这是摘要。
+\end{abstract}
+
+Let's play with \LaTeX!\cite{1}
 %一号标题
 \section{我是一号标题}
 相当于markdown里面的\# 我是一号标题
@@ -56,7 +88,7 @@ Let's play with \LaTeX!
 %插入图表
 \begin{figure}[H]%控制图表在原地不动
 \centering%居中
-\includegraphics[width = .8\textwidth]{我是一张图片.png}%控制图片宽度为页面宽度的百分之八十，插入图片
+\includegraphics[width = .8\textwidth]{pic.png}%控制图片宽度为页面宽度的百分之八十，插入图片
 \caption{我是一张图片}%图片名
 \label{fig:1}%图片编号，这里是1
 \end{figure}
@@ -71,6 +103,37 @@ Let's play with \LaTeX!
 \begin{lstlisting}
 % 这里是matlab代码
 \end{lstlisting}
+
+%插入公式
+行内公式$1+1=2$
+
+行间公式
+$$
+1+1=2
+$$
+
+\[
+1+1=2
+\]
+
+对齐不标号
+\begin{align*}
+1+1&=2\\
+1+2&=3
+\end{align*}
+
+%参考文献写法1
+\addcontentsline{toc}{section}{参考文献}
+\bibliography{test.bib}
+
+
+%参考文献写法2
+%\begin{thebibliography}{0}
+%\addcontentsline{toc}{section}{参考文献}
+%\bibitem{参考文献1.{2018}}
+%参考作者, 参考文献, 2018-12-21
+%\end{thebibliography}
+
 
 
 %结束
