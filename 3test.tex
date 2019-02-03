@@ -1,0 +1,172 @@
+﻿\input{0ref}%插入导言
+%文章信息
+\title{我是题目}
+\author{我是作者的名字}
+\date{\today}%今天的日期
+
+%开始
+\begin{document}
+%简单标题
+%\maketitle
+
+\input{1titlepage}%插入标题页
+
+%目录
+\tableofcontents
+\newpage
+
+%图目录
+\listoffigures
+
+\newpage%分页
+
+
+%摘要
+\begin{abstract}
+\addcontentsline{toc}{section}{摘要}
+这是摘要。
+\end{abstract}
+
+\include{2Chapter2}
+
+\include{2Chapter2}
+
+Let's play with \textbf{\emph{\underline{\LaTeX}}}!\cite{1}
+
+引用一下图\ref{figure:1}
+%一号标题
+\section{我是一号标题}
+相当于markdown里面的\# 我是一号标题
+%二号标题
+\subsection{我是二号标题}
+相当于markdown里的\#\# 我是二号标题
+%三号标题
+\subsubsection{我是三号标题}
+相当于markdown里的\#\#\# 我是三号标题
+\paragraph{我是第一段}
+相当于第一段
+%插入图表
+\begin{figure}[H]%控制图表在原地不动
+\centering%居中
+\includegraphics[width = .8\textwidth]{pic.png}%控制图片宽度为页面宽度的百分之八十，插入图片
+\caption{我是一张图片}%图片名
+\label{figure:1}%图片编号，这里是1
+\end{figure}
+
+%插入编号列表
+\begin{enumerate}
+\item item1
+\item item2
+\end{enumerate}
+
+%波浪线
+数学$\sim$
+文字\textasciitilde
+
+%插入无序列表
+\begin{itemize}
+\item item1
+	\iitem item1.1
+		\iiitem item 1.1.1
+			\ivtem item1.1.1.1
+\item item2
+\end{itemize}
+
+%插入横线
+
+\rule[-10pt]{14.3cm}{0.05em}
+
+%插入引用
+\begin{quotation}
+i am a block quote
+\end{quotation}
+
+%插入代码
+\begin{lstlisting}
+% 这里是matlab代码
+\end{lstlisting}
+
+%插入表格
+\begin{table}[!htbp]%!: 尽可能按参数指定方式处理表格浮动位置，h: 当前位置，t: 下一页页首，b: 当前页页尾
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\centering
+\begin{tabular}{m{2cm}b{2cm}p{2cm}}%表格，不画竖线
+\toprule%画顶端线
+指标1&\tabincell{c}{指标2\\指标2}&指标3\\
+\midrule%画中间横线
+参数1&参数2&参数3\\
+\hline%画横线
+参数1&参数2&参数3\\
+\bottomrule%画底端横线
+\end{tabular}
+\caption{这是一张表}\label{table}
+\end{table}
+
+%控制表格自动换行
+\begin{tabular}{ccp{3cm}p{1.5cm}p{3cm}c}
+\toprule
+股票代码&	证券简称&	机构名称&	一级行业名称&	二级行业名称&	年份\\
+\midrule
+600338.SH&	西藏珠峰&	西藏珠峰资源股份有限公司&	采矿业&	有色金属矿采选业&	2013-2017\\
+600354.SH&	敦煌种业&	甘肃省敦煌种业（集团）股份有限公司&	农、林、牧、渔业&	农业&	2006-2010\\
+000998.SZ&	隆平高科&	袁隆平农业高科技股份有限公司&	农、林、牧、渔业&	农业&	2006-2010\\
+600320.SH&	振华重工&	上海振华重工(集团)股份有限公司&	制造业&	专用设备制造业&	2003-2007\\
+300072.SZ&	三聚环保&	北京三聚环保新材料股份有限公司&	制造业&	化学原料和化学制品制造业&	2012-2016\\
+000792.SZ&	盐湖股份&	青海盐湖工业股份有限公司&	制造业&	化学原料和化学制品制造业&	2003-2007\\
+000063.SZ&	中兴通讯&	中兴通讯股份有限公司&	制造业&	计算机、通信和其他电子设备制造业&	2003-2007\\
+\bottomrule
+\end{tabular}
+
+\begin{table}[!htbp]%!: 尽可能按参数指定方式处理表格浮动位置，h: 当前位置，t: 下一页页首，b: 当前页页尾
+\centering
+\begin{tabular}{m{2cm}b{2cm}p{2cm}}%表格，不画竖线
+\toprule%画顶端线
+指标1&指标2&指标3\\
+\midrule%画中间横线
+\multirow{2}*{参数}&参数2&参数3\\
+\cline{2-3}
+~&参数2&参数3\\
+\bottomrule%画底端横线
+\end{tabular}
+\caption{这是一张表}\label{table}
+\end{table}
+
+
+
+
+%插入公式
+行内公式$1+1=2$\\
+
+行间公式
+$$
+1+1=2
+$$
+
+\[
+1+1=2
+\]
+
+对齐不标号
+\begin{align*}
+1+1&=2\\
+1+2&=3
+\end{align*}
+
+
+
+%参考文献写法1
+\addcontentsline{toc}{section}{参考文献}
+\bibliography{4bib.bib}
+
+
+%参考文献写法2
+%\begin{thebibliography}{0}
+%\addcontentsline{toc}{section}{参考文献}
+%\bibitem{参考文献1.{2018}}
+%参考作者, 参考文献, 2018-12-21
+%\end{thebibliography}
+
+
+
+%结束
+\end{document}

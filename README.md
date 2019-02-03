@@ -1,1 +1,1 @@
-注意使用第一种参考文献方式的时候，先用XeLaTeX编译出.aux，再用BibTeX编译出.bbl，再用XeLaTeX编译两遍即可。
+注意使用第一种参考文献方式的时候，先用XeLaTeX编译出.aux，再用BibTeX编译.aux文档得到.bbl，再用XeLaTeX编译两遍即可。
